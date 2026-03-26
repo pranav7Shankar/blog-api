@@ -24,7 +24,7 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @PostMapping("/")
+    @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Create a category")
     public ResponseEntity<CategoryDto> createCategory(@Valid @RequestBody CategoryDto categoryDto){
@@ -50,7 +50,7 @@ public class CategoryController {
         );
     }
 
-    @GetMapping("/")
+    @GetMapping
     @Operation(summary = "Get all categories")
     public ResponseEntity<List<CategoryDto>> getAllCategories(){
         return ResponseEntity.ok(this.categoryService.getAllCategories());

@@ -24,7 +24,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/")
+    @PostMapping
     @PermitAll
     @Operation(summary = "Create a user")
     public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto){
@@ -50,7 +50,7 @@ public class UserController {
         );
     }
 
-    @GetMapping("/")
+    @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Get all users")
     public ResponseEntity<List<UserDto>> getAllUsers(){
